@@ -50,13 +50,14 @@ function processText(text, strategy) {
         text += '\n';
     }
 
-    const lines = text.split('\n').filter(line => line !== ''); // Remove any empty lines
+    const lines = text.split(/(?<=\n)/);
     const output = processLines(lines, strategy);
 
-    let result = output.join('\n');
-    if (endsWithNewline) {
-        // Ensure the result ends with a newline if the original input did
-        result += '\n';
+    let result = output.join('');
+    // Handle whether the result should end with a newline based on the original input
+    if (!endsWithNewline) {
+        // If the original text didn't end with a newline, remove any trailing newline in the result
+        result = result.replace(/\n$/, '');
     }
 
     return result;
@@ -131,7 +132,7 @@ function processLines(lines, strategy) {
 
 function sort(block, strategy) {
     // Join the block into a single string (removing trailing newlines from each line)
-    let line = block.map(line => line.trimEnd()).join('');
+    let line = block.map(line => line.trimEnd()).join('') + '\n';
     
     // Remove comments from the line and trim it
     const lineWithoutComment = line.trim().split('//')[0].trim();

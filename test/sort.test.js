@@ -29,7 +29,7 @@ describe('processText', () => {
         const input = `line1
         line2
         `;
-            const expected = `line1
+        const expected = `line1
         line2
         `;
         const result = processText(input, null); // No-op strategy
@@ -39,7 +39,7 @@ describe('processText', () => {
     test('processes multiline text without a new line at the end', () => {
         const input = `line1
         line2`;
-            const expected = `line1
+        const expected = `line1
         line2`;
         const result = processText(input, null); // No-op strategy
         expect(result).toEqual(expected);
