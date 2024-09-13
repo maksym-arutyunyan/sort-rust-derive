@@ -5,25 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust Derive Traits Sorter</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Add Prism.js CSS for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Rust Derive Traits Sorter</h1>
-    <label for="sort-type">Sort Type:</label>
-    <select id="sort-type" onchange="sortTraits()">
-        <option value="canonical">Canonical (default)</option>
-        <option value="alphabetical">Alphabetical</option>
-    </select>
-    
-    <div>
-        <label for="input-field">Input:</label>
-        <textarea id="input-field" rows="10" cols="50" oninput="sortTraits()"></textarea>
-    </div>
-    
-    <div>
-        <label for="output-field">Output:</label>
-        <textarea id="output-field" rows="10" cols="50" readonly></textarea>
+    <div class="container">
+        <h1>Rust Derive Traits Sorter</h1>
+
+        <label for="sort-type">Sort Type:</label>
+        <select id="sort-type" onchange="sortTraits()">
+            <option value="canonical">Canonical (default)</option>
+            <option value="alphabetical">Alphabetical</option>
+        </select>
+
+        <div class="input-group">
+            <label for="input-field">Input:</label>
+            <textarea id="input-field" rows="10" cols="50" oninput="sortTraits()" placeholder="Enter your Rust code here..."></textarea>
+        </div>
+
+        <div class="output-group">
+            <div class="output-header">
+                <label for="output-field">Output:</label>
+                <button id="copy-btn" onclick="copyCode()">Copy code</button>
+            </div>
+            <pre><code id="output-field" class="language-rust"></code></pre>
+        </div>
     </div>
 
+    <!-- Add Prism.js JavaScript for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
     <script src="js/sort.js"></script>
 </body>
 </html>
