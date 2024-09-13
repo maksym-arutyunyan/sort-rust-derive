@@ -11,16 +11,36 @@ describe('processText', () => {
         expect(result).toEqual(expected);
     });
 
-    test('processes text with a new line at the end', () => {
-        const input = "line1\nline2\n";
-        const expected = "line1\nline2\n";
+    test('processes single text with a new line at the end', () => {
+        const input = "line\n";
+        const expected = "line\n";
         const result = processText(input, null); // No-op strategy
         expect(result).toEqual(expected);
     });
 
-    test('processes text without a new line at the end', () => {
-        const input = "line1\nline2";
-        const expected = "line1\nline2";
+    test('processes single text without a new line at the end', () => {
+        const input = "line";
+        const expected = "line";
+        const result = processText(input, null); // No-op strategy
+        expect(result).toEqual(expected);
+    });
+
+    test('processes multiline text with a new line at the end', () => {
+        const input = `line1
+        line2
+        `;
+            const expected = `line1
+        line2
+        `;
+        const result = processText(input, null); // No-op strategy
+        expect(result).toEqual(expected);
+    });
+
+    test('processes multiline text without a new line at the end', () => {
+        const input = `line1
+        line2`;
+            const expected = `line1
+        line2`;
         const result = processText(input, null); // No-op strategy
         expect(result).toEqual(expected);
     });
@@ -33,6 +53,30 @@ describe('canonicalSort', () => {
         const result = canonicalSort(input);
         expect(result).toEqual(expected);
     });
+
+    test('processes single line derive', () => {
+        const input = "#[derive(Debug, Clone, PartialEq, Unknown, Ord)]";
+        const expected = "#[derive(Clone, PartialEq, Ord, Debug, Unknown)]";
+        const result = processText(input, 'CanonicalSort');
+        console.log(`result:   [${result}]`);
+        console.log(`expected: [${expected}]`);
+        expect(result).toEqual(expected);
+    });
+
+    test('processes multi-line derive', () => {
+        const input = `#[derive(
+            Debug,
+            Clone,
+            PartialEq,
+            Unknown,
+            Ord
+        )]`;
+        const expected = "#[derive(Clone, PartialEq, Ord, Debug, Unknown)]";
+        const result = processText(input, 'CanonicalSort');
+        console.log(`result:   [${result}]`);
+        console.log(`expected: [${expected}]`);
+        expect(result).toEqual(expected);
+    });
 });
 
 describe('alphabeticalSort', () => {
@@ -40,6 +84,28 @@ describe('alphabeticalSort', () => {
         const input = ["Unknown", "Ord", "Clone"];
         const expected = ["Clone", "Ord", "Unknown"];
         const result = alphabeticalSort(input);
+        expect(result).toEqual(expected);
+    });
+
+    test('processes single line derive', () => {
+        const input = "#[derive(Unknown, Ord, Clone)]";
+        const expected = "#[derive(Clone, Ord, Unknown)]";
+        const result = processText(input, 'AlphabeticalSort');
+        console.log(`result:   [${result}]`);
+        console.log(`expected: [${expected}]`);
+        expect(result).toEqual(expected);
+    });
+
+    test('processes multi-line derive', () => {
+        const input = `#[derive(
+            Unknown,
+            Ord,
+            Clone,
+        )]`;
+        const expected = "#[derive(Clone, Ord, Unknown)]";
+        const result = processText(input, 'AlphabeticalSort');
+        console.log(`result:   [${result}]`);
+        console.log(`expected: [${expected}]`);
         expect(result).toEqual(expected);
     });
 });
