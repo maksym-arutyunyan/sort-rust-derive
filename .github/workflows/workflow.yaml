@@ -34,6 +34,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          npm install
           npm ci # or 'npm install' if package-lock.json is not committed
 
       - name: Run Tests
@@ -47,7 +48,7 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-      
+
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
       env:
