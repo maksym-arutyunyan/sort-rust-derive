@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: npm test
