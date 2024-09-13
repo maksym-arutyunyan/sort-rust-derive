@@ -14,18 +14,25 @@ function sortTraits() {
 
     const outputText = processText(inputText, strategy);
 
-    document.getElementById('output-field').value = outputText;
-    Prism.highlightAll();  // Re-highlight after updating text
+    const outputField = document.getElementById('output-field');
+    outputField.textContent = outputText;
+
+    Prism.highlightAll();  // Re-highlight after updating the output
 }
 
 function copyCode() {
     const outputField = document.getElementById('output-field');
-    outputField.select();
-    outputField.setSelectionRange(0, 99999); // For mobile devices
+    const textToCopy = outputField.textContent;
 
+    // Create a temporary textarea element to copy the text
+    const tempTextArea = document.createElement('textarea');
+    tempTextArea.value = textToCopy;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
     document.execCommand('copy');
+    document.body.removeChild(tempTextArea);
 
-    // Show 'Copied!' text for 3 seconds
+    // Show 'Copied!' for 3 seconds
     const copyButton = document.getElementById('copy-btn');
     copyButton.textContent = 'Copied!';
     copyButton.classList.add('copied');
