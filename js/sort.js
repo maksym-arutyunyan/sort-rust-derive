@@ -59,7 +59,12 @@ function canonicalSort(traits) {
     });
 }
 
+function alphabeticalSort(traits) {
+    return traits.sort();
+}
+
 module.exports = {
     processText,
-    canonicalSort
+    canonicalSort,
+    alphabeticalSort
 };

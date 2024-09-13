@@ -1,6 +1,7 @@
 // Import the canonicalSort function
 const processText = require('../js/sort').processText;
 const canonicalSort = require('../js/sort').canonicalSort;
+const alphabeticalSort = require('../js/sort').alphabeticalSort;
 
 describe('processText', () => {
     test('handles empty text correctly', () => {
@@ -30,6 +31,15 @@ describe('canonicalSort', () => {
         const input = ["Debug", "Clone", "PartialEq", "Unknown", "Ord"];
         const expected = ["Clone", "PartialEq", "Ord", "Debug", "Unknown"];
         const result = canonicalSort(input);
+        expect(result).toEqual(expected);
+    });
+});
+
+describe('alphabeticalSort', () => {
+    test('sorts traits according to the alphabetical order', () => {
+        const input = ["Unknown", "Ord", "Clone"];
+        const expected = ["Clone", "Ord", "Unknown"];
+        const result = alphabeticalSort(input);
         expect(result).toEqual(expected);
     });
 });
