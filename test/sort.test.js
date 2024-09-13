@@ -1,5 +1,29 @@
 // Import the canonicalSort function
+const processText = require('../js/sort').processText;
 const canonicalSort = require('../js/sort').canonicalSort;
+
+describe('processText', () => {
+    test('handles empty text correctly', () => {
+        const input = "";
+        const expected = "";
+        const result = processText(input, null); // No-op strategy
+        expect(result).toEqual(expected);
+    });
+
+    test('processes text with a new line at the end', () => {
+        const input = "line1\nline2\n";
+        const expected = "line1\nline2\n";
+        const result = processText(input, null); // No-op strategy
+        expect(result).toEqual(expected);
+    });
+
+    test('processes text without a new line at the end', () => {
+        const input = "line1\nline2";
+        const expected = "line1\nline2";
+        const result = processText(input, null); // No-op strategy
+        expect(result).toEqual(expected);
+    });
+});
 
 describe('canonicalSort', () => {
     test('sorts traits according to the canonical order', () => {
@@ -8,13 +32,4 @@ describe('canonicalSort', () => {
         const result = canonicalSort(input);
         expect(result).toEqual(expected);
     });
-
-    // test('sorts traits with alphabetical fallback', () => {
-    //     const traits = ["Foo", "Bar", "Clone", "Eq"];
-    //     const sortedTraits = canonicalSort(traits);
-    //     const expected = ["Clone", "Eq", "Bar", "Foo"];
-        
-    //     // Assert that traits not in the canonical order are sorted alphabetically
-    //     expect(sortedTraits).toEqual(expected);
-    // });
 });

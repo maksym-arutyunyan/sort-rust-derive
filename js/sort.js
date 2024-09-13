@@ -8,11 +8,27 @@ function sortTraits() {
     document.getElementById('output-field').value = outputText;
 }
 
-function process_text(text, strategy) {
-    return text;
+function processText(text, strategy) {
+    const endsWithNewline = text.endsWith('\n');
+    if (!endsWithNewline) {
+        // Add a newline to the text if it doesn't already have one
+        text += '\n';
+    }
+
+    const lines = text.split('\n').filter(line => line !== ''); // Remove any empty lines
+    const output = processLines(lines, strategy);
+
+    let result = output.join('\n');
+    if (endsWithNewline) {
+        // Ensure the result ends with a newline if the original input did
+        result += '\n';
+    }
+
+    return result;
 }
 
-function process(lines, strategy) {
+function processLines(lines, strategy) {
+    // Apply the strategy on the lines (for now, it just returns the lines unchanged)
     return lines;
 }
 
@@ -44,5 +60,6 @@ function canonicalSort(traits) {
 }
 
 module.exports = {
+    processText,
     canonicalSort
 };
