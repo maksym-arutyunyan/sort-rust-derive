@@ -7,10 +7,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, edited]
 
-permissions:
-  pull-requests: read
-  statuses: write
-
 jobs:
   validate-pr-title:
     name: Validate PR Title
