@@ -1,25 +1,19 @@
 // Function to sort the derive traits based on the selected sorting type
 function sortTraits() {
     const inputText = document.getElementById('input-field').value;
-    const sortType = document.getElementById('sort-type').value.toLowerCase();  // Lowercase once
+    const sortType = document.getElementById('sort-type').value.toLowerCase();
 
-    // Early return if inputText is empty
     if (!inputText.trim()) {
         document.getElementById('output-field').value = '';
         return;
     }
-
-    // Determine the sorting strategy using a concise ternary operator
     const strategy = sortType.includes('alphabetical') 
         ? 'AlphabeticalSort' 
         : sortType.includes('canonical') 
         ? 'CanonicalSort' 
         : null;
-
-    // Process the text using the chosen strategy
     const outputText = processText(inputText, strategy);
 
-    // Update the output field
     document.getElementById('output-field').value = outputText;
 }
 
