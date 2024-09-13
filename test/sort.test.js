@@ -58,8 +58,6 @@ describe('canonicalSort', () => {
         const input = "#[derive(Debug, Clone, PartialEq, Unknown, Ord)]";
         const expected = "#[derive(Clone, PartialEq, Ord, Debug, Unknown)]";
         const result = processText(input, 'CanonicalSort');
-        console.log(`result:   [${result}]`);
-        console.log(`expected: [${expected}]`);
         expect(result).toEqual(expected);
     });
 
@@ -73,8 +71,6 @@ describe('canonicalSort', () => {
         )]`;
         const expected = "#[derive(Clone, PartialEq, Ord, Debug, Unknown)]";
         const result = processText(input, 'CanonicalSort');
-        console.log(`result:   [${result}]`);
-        console.log(`expected: [${expected}]`);
         expect(result).toEqual(expected);
     });
 });
@@ -91,8 +87,6 @@ describe('alphabeticalSort', () => {
         const input = "#[derive(Unknown, Ord, Clone)]";
         const expected = "#[derive(Clone, Ord, Unknown)]";
         const result = processText(input, 'AlphabeticalSort');
-        console.log(`result:   [${result}]`);
-        console.log(`expected: [${expected}]`);
         expect(result).toEqual(expected);
     });
 
@@ -104,8 +98,6 @@ describe('alphabeticalSort', () => {
         )]`;
         const expected = "#[derive(Clone, Ord, Unknown)]";
         const result = processText(input, 'AlphabeticalSort');
-        console.log(`result:   [${result}]`);
-        console.log(`expected: [${expected}]`);
         expect(result).toEqual(expected);
     });
 });
