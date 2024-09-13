@@ -2,10 +2,9 @@
     "name": "rust-derive-sorter",
     "version": "1.0.0",
     "scripts": {
-      "test": "node test/sort.test.js"
+        "test": "node test/sort.test.js"
     },
     "devDependencies": {
-      "jest": "^29.0.0"
+        "jest": "^29.7.0"
     }
-  }
-  
+}
