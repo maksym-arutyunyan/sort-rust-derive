@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Derive Traits Sorter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Rust Derive Traits Sorter</h1>
+    <label for="sort-type">Sort Type:</label>
+    <select id="sort-type" onchange="sortTraits()">
+        <option value="canonical">Canonical (default)</option>
+        <option value="alphabetical">Alphabetical</option>
+    </select>
+    
+    <div>
+        <label for="input-field">Input:</label>
+        <textarea id="input-field" rows="10" cols="50" oninput="sortTraits()"></textarea>
+    </div>
+    
+    <div>
+        <label for="output-field">Output:</label>
+        <textarea id="output-field" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <script src="js/sort.js"></script>
+</body>
+</html>
