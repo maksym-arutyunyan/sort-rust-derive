@@ -41,14 +41,14 @@ jobs:
           ./run_tests.sh
 
   shell-checks:
-    name: ShellCheck Lint
+    name: ShellCheck
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@v0.4.2  # Use specific version for stability
-        env:
-          SHELLCHECK_OPTS: -e SC1090 -e SC2119 -e SC1091
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Run ShellCheck
+      uses: ludeeus/action-shellcheck@master
+      env:
+        SHELLCHECK_OPTS: -e SC1090 -e SC2119 -e SC1091
