@@ -1,20 +1,39 @@
 // Function to sort the derive traits based on the selected sorting type
 function sortTraits() {
     const inputText = document.getElementById('input-field').value;
-    const sortType = document.getElementById('sort-type').value.toLowerCase();
+    const sortType = document.getElementById('sort-type').value;
 
-    if (!inputText.trim()) {
-        document.getElementById('output-field').value = '';
-        return;
+    let strategy;
+    if (sortType.toLowerCase().includes('alphabetical')) {
+        strategy = 'AlphabeticalSort';
+    } else if (sortType.toLowerCase().includes('canonical')) {
+        strategy = 'CanonicalSort';
+    } else {
+        strategy = null;  // No sorting if no valid strategy is provided
     }
-    const strategy = sortType.includes('alphabetical') 
-        ? 'AlphabeticalSort' 
-        : sortType.includes('canonical') 
-        ? 'CanonicalSort' 
-        : null;
+
     const outputText = processText(inputText, strategy);
 
     document.getElementById('output-field').value = outputText;
+    Prism.highlightAll();  // Re-highlight after updating text
+}
+
+function copyCode() {
+    const outputField = document.getElementById('output-field');
+    outputField.select();
+    outputField.setSelectionRange(0, 99999); // For mobile devices
+
+    document.execCommand('copy');
+
+    // Show 'Copied!' text for 3 seconds
+    const copyButton = document.getElementById('copy-btn');
+    copyButton.textContent = 'Copied!';
+    copyButton.classList.add('copied');
+
+    setTimeout(() => {
+        copyButton.textContent = 'Copy code';
+        copyButton.classList.remove('copied');
+    }, 3000);
 }
 
 function processText(text, strategy) {
