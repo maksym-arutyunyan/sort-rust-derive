@@ -5,9 +5,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
+    line-height: 1.6;
     padding: 20px;
 }
 
@@ -17,49 +18,100 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #444;
+    font-size: 2em;
+    font-weight: 700;
 }
 
 label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: block;
+    color: #555;
 }
 
-select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+h3 {
+    margin-top: 25px;
+    color: #444;
+    font-size: 1.3em;
+}
+
+ul {
+    margin-left: 25px;
+    /* Increased indentation for list */
     margin-bottom: 20px;
 }
 
-textarea, pre {
-    width: 100%; /* Ensure both have the same width */
-    height: 250px; /* Set a fixed height for both elements */
-    padding: 10px;
+li {
+    margin-bottom: 10px;
+}
+
+code,
+.inline-code {
+    background-color: #f9f9f9;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-family: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 0.95em;
+}
+
+.inline-code {
+    display: inline;
+    padding: 0;
+    /* Keep it small and inline */
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+textarea,
+pre {
+    width: 100%;
+    height: 250px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-family: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
     background-color: #f9f9f9;
     resize: vertical;
 }
 
 pre {
-    white-space: pre-wrap; /* Allows long lines to wrap */
+    white-space: pre-wrap;
     word-wrap: break-word;
-    overflow-x: auto; /* Adds horizontal scroll if needed */
+    overflow-x: auto;
+}
+
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
 .output-group {
     position: relative;
+    margin-top: 20px;
 }
 
 .output-header {
@@ -72,19 +124,28 @@ button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
     margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 #copy-btn.copied {
     background-color: #28a745;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
 }
 
 code {
@@ -94,4 +155,5 @@ code {
 
 button:focus {
     outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
