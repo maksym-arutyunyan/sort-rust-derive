@@ -41,10 +41,21 @@ select, textarea {
     margin-bottom: 20px;
 }
 
-textarea {
-    resize: vertical;
+textarea, pre {
+    width: 100%; /* Ensure both have the same width */
+    height: 250px; /* Set a fixed height for both elements */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-family: "Courier New", monospace;
     background-color: #f9f9f9;
+    resize: vertical;
+}
+
+pre {
+    white-space: pre-wrap; /* Allows long lines to wrap */
+    word-wrap: break-word;
+    overflow-x: auto; /* Adds horizontal scroll if needed */
 }
 
 .output-group {
