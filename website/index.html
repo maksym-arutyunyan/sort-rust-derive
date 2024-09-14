@@ -15,36 +15,32 @@
         <header>
             <h1>Rust Derive Traits Sorter</h1>
             <h4>What:</h4>
-            <p>Quickly and easily organize your Rust derive traits</p>
+            <p>Easily organize your Rust derive traits for consistency.</p>
         </header>
 
         <section id="introduction">
             <h4>Why:</h4>
-            <p>Sorting derive traits ensures consistency in your Rust projects. It makes it easier for developers to
-                scan and understand the code by keeping derives in a predictable order.</p>
-            <p>Although <span class="inline-code">cargo fmt</span> doesn't support sorting derive traits due to some
-                rare edge cases, this
-                tool can help you keep consistent trait order in most situations.</p>
+            <p>Sorting derives keeps your code predictable and easy to read.
+                While <span class="inline-code">cargo fmt</span> doesn't handle this due to rare edge cases, this tool
+                helps maintain consistent trait order.</p>
         </section>
 
         <section id="explanation">
             <h5>Sorting Methods:</h5>
             <ul>
-                <li><strong>Canonical:</strong> Standard Rust traits come first, and the rest follow in alphabetical
-                    order.
+                <li><strong>Canonical:</strong> Standard Rust traits first, followed by others in alphabetical order.
                 </li>
-                <li><strong>Alphabetical:</strong> All traits are listed alphabetically.
+                <li><strong>Alphabetical:</strong> All traits are sorted alphabetically.
                 </li>
             </ul>
 
-            <h5>Related Resources:</h5>
+            <h5>Resources:</h5>
             <ul>
-                <li>Learn more about sorting derive traits:
+                <li>Learn more:
                     <a href="https://github.com/rust-lang/rustfmt/issues/1867">2017 Feature Request</a>,
                     <a href="https://github.com/rust-lang/style-team/issues/154">2020 Feature Request</a>
                 </li>
-                <li>Looking to integrate this into your CI pipeline? Check out the
-                    <a href="https://github.com/user/keepsorted">keepsorted</a> command-line tool!
+                <li>CI integration: <a href="https://github.com/maksym-arutyunyan/keepsorted">keepsorted</a> command-line tool
                 </li>
             </ul>
         </section>
