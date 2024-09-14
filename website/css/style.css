@@ -21,19 +21,23 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
+/* Header Styling */
+header {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
     color: #444;
     font-size: 2em;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
-label {
-    font-weight: bold;
+h4 {
+    font-size: 1.3em;
+    color: #007bff; /* Consistent color for sub-headings */
     margin-bottom: 8px;
-    display: block;
-    color: #555;
 }
 
 p {
@@ -41,22 +45,37 @@ p {
     color: #555;
 }
 
-h3 {
-    margin-top: 25px;
-    color: #444;
-    font-size: 1.3em;
-}
-
-ul {
-    margin-left: 25px;
-    /* Increased indentation for list */
+/* Consistent styling for sections before the tool */
+section {
     margin-bottom: 20px;
 }
 
-li {
-    margin-bottom: 10px;
+h5 {
+    font-size: 1.2em;
+    color: #007bff; /* Same color for headings */
+    margin-bottom: 8px;
 }
 
+ul {
+    margin-left: 20px; /* Adjust indentation for consistency */
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code formatting for inline and block code */
 code,
 .inline-code {
     background-color: #f9f9f9;
@@ -72,6 +91,7 @@ code,
     /* Keep it small and inline */
 }
 
+/* Form fields styling */
 select,
 textarea {
     width: 100%;
@@ -109,6 +129,7 @@ textarea:focus {
     outline: none;
 }
 
+/* Output group styles */
 .output-group {
     position: relative;
     margin-top: 20px;
@@ -120,6 +141,7 @@ textarea:focus {
     align-items: center;
 }
 
+/* Button Styling */
 button {
     background-color: #007bff;
     color: white;
@@ -141,6 +163,7 @@ button:hover {
     background-color: #28a745;
 }
 
+/* Footer styling */
 footer {
     text-align: center;
     margin-top: 40px;
