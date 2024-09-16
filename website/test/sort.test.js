@@ -77,26 +77,46 @@ describe('canonicalSort', () => {
 
 describe('alphabeticalSort', () => {
     test('sorts traits according to the alphabetical order', () => {
-        const input = ["Unknown", "Ord", "Clone"];
-        const expected = ["Clone", "Ord", "Unknown"];
+        const input = ["serde::Serialize", "Unknown", "Ord", "Clone", "c", "b", "a", "C", "B", "A", "Serialize"];
+        const expected = [
+            "A",
+            "B",
+            "C",
+            "Clone",
+            "Ord",
+            "Serialize",
+            "serde::Serialize",
+            "Unknown",
+            "a",
+            "b",
+            "c",
+        ];
         const result = alphabeticalSort(input);
         expect(result).toEqual(expected);
     });
 
     test('processes single line derive', () => {
-        const input = "#[derive(Unknown, Ord, Clone)]";
-        const expected = "#[derive(Clone, Ord, Unknown)]";
+        const input = "#[derive(serde::Serialize, Unknown, Ord, Clone, c, b, a, C, B, A, Serialize)]";
+        const expected = "#[derive(A, B, C, Clone, Ord, Serialize, serde::Serialize, Unknown, a, b, c)]";
         const result = processText(input, 'AlphabeticalSort');
         expect(result).toEqual(expected);
     });
 
     test('processes multi-line derive', () => {
         const input = `#[derive(
+            serde::Serialize,
             Unknown,
             Ord,
             Clone,
+            c,
+            b,
+            a,
+            C,
+            B,
+            A,
+            Serialize,
         )]`;
-        const expected = "#[derive(Clone, Ord, Unknown)]";
+        const expected = "#[derive(A, B, C, Clone, Ord, Serialize, serde::Serialize, Unknown, a, b, c)]";
         const result = processText(input, 'AlphabeticalSort');
         expect(result).toEqual(expected);
     });
